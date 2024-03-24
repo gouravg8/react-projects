@@ -8,6 +8,7 @@ export interface todoTypes {
 
 const initialState = {
   todos: [] as todoTypes[],
+  doneTodoLength: 0,
 };
 
 // const initialState: {
@@ -30,6 +31,7 @@ export const todoSlice = createSlice({
       state.todos.map((todo) =>
         todo.id === action.payload ? (todo.isDone = !todo.isDone) : todo.isDone
       );
+      state.doneTodoLength = state.todos.filter((todo) => todo.isDone).length;
     },
   },
 });

@@ -1,10 +1,9 @@
 import "./App.css";
-import { Todo } from "./components";
 
 function App() {
   return (
     <>
-      <Todo />
+      <h3>hello from home</h3>
     </>
   );
 }

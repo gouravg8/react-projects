@@ -1,3 +1,2 @@
-import Todo from "./Todo/Todo";
-
-export { Todo };
+export { Todo } from "./Todo/Todo";
+export { Calculator } from "./Calculator/Calculator";

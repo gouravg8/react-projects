@@ -8,7 +8,7 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { Todo } from "./components/index";
+import { Calculator, Todo } from "./components/index";
 import Layout from "./layout/Layout.tsx";
 
 const router = createBrowserRouter(
@@ -16,7 +16,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<App />} />
       <Route path="todo" element={<Todo />} />
-      <Route path="calculator" element={<Todo />} />
+      <Route path="calculator" element={<Calculator />} />
     </Route>
   )
 );

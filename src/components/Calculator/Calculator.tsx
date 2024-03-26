@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Calculator = () => {
   return (
-    <div className="my-32">
+    <div className="my-24">
       {/* <CalculatorOutput /> */}
       <CalculatorLayout />
     </div>
@@ -43,11 +43,11 @@ const CalculatorLayout = () => {
   };
 
   return (
-    <div className="my-8 w-2/3 md:w-fit mx-auto">
-      <div className="w-full my-3 flex flex-col gap-3">
-        <div className="w-fit flex flex-wrap gap-3">
+    <div className="my-4 w-2/3 md:w-fit mx-auto">
+      <div className="w-full my-3 flex flex-col gap-2">
+        <div className="w-full md:w-fit flex flex-wrap gap-1 md:gap-3 justify-center md:justify-start">
           <input
-            className="w-32 border h-16 px-3 text-3xl"
+            className="w-20 md:w-32 border h-fit md:h-16 p-2 md:px-3 text-xl md:text-3xl rounded"
             type="number"
             placeholder={"0"}
             name="firstInp"
@@ -61,7 +61,7 @@ const CalculatorLayout = () => {
             }
           />
           <input
-            className="w-32 border h-16 px-3 text-3xl"
+            className="w-20 md:w-32 border h-fit md:h-16 p-2 md:px-3 text-xl md:text-3xl rounded"
             type="string"
             placeholder={"+"}
             name="operator"
@@ -72,7 +72,7 @@ const CalculatorLayout = () => {
             }
           />
           <input
-            className="w-32 border h-16 px-3 text-3xl"
+            className="w-20 md:w-32 border h-fit md:h-16 p-2 md:px-3 text-xl md:text-3xl rounded"
             type="number"
             placeholder={"0"}
             name="secondInput"
@@ -87,7 +87,7 @@ const CalculatorLayout = () => {
           />
         </div>
         <input
-          className="w-92 border h-16 px-3 text-3xl"
+          className="w-92 border h-fit md:h-16 p-2 md:px-3 text-xl md:text-3xl"
           type="number"
           placeholder={"0"}
           name="calOuput"
@@ -100,7 +100,7 @@ const CalculatorLayout = () => {
         {items.map((item, idx) => (
           <div
             key={idx}
-            className={`grid-item size-24 flex items-center justify-center text-3xl font-semibold  cursor-pointer ${
+            className={`grid-item size-14 md:size-24 flex items-center justify-center text-xl md:text-3xl font-semibold  cursor-pointer rounded ${
               typeof item !== "string"
                 ? "bg-gray-400"
                 : "bg-orange-500 text-white"

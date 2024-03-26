@@ -87,6 +87,20 @@ export default function Header() {
                       Calculator
                     </NavLink>
                   </li>
+                  <li>
+                    <NavLink
+                      to="/gallary"
+                      className={({ isActive }) =>
+                        `block py-2 pr-4 pl-3 duration-200 ${
+                          isActive
+                            ? "text-orange-500"
+                            : "text-black md:text-gray-300"
+                        } lg:hover:bg-transparent hover:text-orange-600 lg:p-0`
+                      }
+                    >
+                      Gallary
+                    </NavLink>
+                  </li>
                 </ul>
               </div>
             </li>

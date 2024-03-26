@@ -9,14 +9,6 @@ const Calculator = () => {
   );
 };
 
-// const CalculatorOutput = () => {
-//   return (
-//     <div>
-//       <input type="text" name="calInput" id="calInput" />
-//     </div>
-//   );
-// };
-
 const CalculatorLayout = () => {
   const items = [1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", 0, "C", "/", "="];
   const [input, setInput] = useState({
@@ -29,14 +21,27 @@ const CalculatorLayout = () => {
 
   const handleClick = (val: string | number) => {
     if (val === "=") {
-      setOutput(eval(input));
+      setOutput(eval(`${input.firstInp}${input.operator}${input.secondInp}`));
     } else if (val === "C") {
-      setInput(0);
+      setInput({
+        firstInp: 0,
+        operator: "",
+        secondInp: 0,
+      });
       setOutput(0);
+    } else if (val === "+" || val === "-" || val === "*" || val === "/") {
+      setInput({
+        ...input,
+        operator: val,
+      });
     } else {
-      setInput(input + val);
+      setInput({
+        ...input,
+        [input.operator ? "secondInp" : "firstInp"]: val,
+      });
     }
   };
+
   return (
     <div className="my-8 w-2/3 md:w-fit mx-auto">
       <div className="w-full my-3 flex flex-col gap-3">
@@ -48,7 +53,12 @@ const CalculatorLayout = () => {
             name="firstInp"
             id="firstInp"
             value={input.firstInp}
-            onChange={(e) => setInput(parseInt(e.target.value))}
+            onChange={(e) =>
+              setInput((prev) => ({
+                ...prev,
+                firstInp: parseInt(e.target.value),
+              }))
+            }
           />
           <input
             className="w-32 border h-16 px-3 text-3xl"
@@ -57,7 +67,9 @@ const CalculatorLayout = () => {
             name="operator"
             id="operator"
             value={input.operator}
-            onChange={(e) => setInput(parseInt(e.target.value))}
+            onChange={(e) =>
+              setInput((prev) => ({ ...prev, operator: e.target.value }))
+            }
           />
           <input
             className="w-32 border h-16 px-3 text-3xl"
@@ -66,7 +78,12 @@ const CalculatorLayout = () => {
             name="secondInput"
             id="secondInput"
             value={input.secondInp}
-            onChange={(e) => setInput(parseInt(e.target.value))}
+            onChange={(e) =>
+              setInput((prev) => ({
+                ...prev,
+                secondInp: parseInt(e.target.value),
+              }))
+            }
           />
         </div>
         <input
